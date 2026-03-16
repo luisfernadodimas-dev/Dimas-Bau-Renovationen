@@ -3,233 +3,765 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dimas Bau & Renovationen</title>
+<title>Dimas Bau & Renovationen | St. Margrethen</title>
+<meta name="description" content="Dimas Bau & Renovationen – kleiner persönlicher Betrieb für Renovationen, Bodenarbeiten, Gartenarbeiten und kleine Arbeiten rund ums Haus.">
 
 <style>
+:root{
+  --bg:#0c1016;
+  --bg-soft:#151b24;
+  --card:#1a212c;
+  --gold:#d6b56c;
+  --gold-dark:#bc9848;
+  --text:#ffffff;
+  --muted:#c4cad4;
+  --line:rgba(255,255,255,0.08);
+  --shadow:0 18px 45px rgba(0,0,0,0.28);
+  --radius:22px;
+  --max:1180px;
+}
 
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Arial;
-background:#0f1115;
-color:white;
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#0a0d12 0%, #111722 100%);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+.container{
+  width:min(var(--max), calc(100% - 32px));
+  margin:0 auto;
 }
 
 header{
-background:#000;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(8,10,14,0.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:14px 0;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:10px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
 }
 
 .logo img{
-height:55px;
-background:white;
-padding:5px;
-border-radius:8px;
+  height:68px;
+  width:auto;
+  background:#fff;
+  padding:6px;
+  border-radius:14px;
 }
 
-nav a{
-color:#ccc;
-margin-left:20px;
-text-decoration:none;
-font-size:14px;
+.logo-text{
+  font-size:20px;
+  font-weight:800;
+  line-height:1.1;
 }
 
-.whatsapp{
-background:#d6b56c;
-color:black;
-padding:12px 18px;
-border-radius:30px;
-font-weight:bold;
-text-decoration:none;
+.logo-text small{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  font-weight:400;
+  margin-top:5px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+nav a:not(.btn){
+  color:var(--muted);
+  font-size:15px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 18px;
+  border-radius:999px;
+  background:var(--gold);
+  color:#111;
+  font-weight:700;
+  box-shadow:var(--shadow);
+  transition:0.2s ease;
+}
+
+.btn:hover{
+  background:var(--gold-dark);
+  transform:translateY(-1px);
+}
+
+.btn.secondary{
+  background:transparent;
+  color:#fff;
+  border:1px solid var(--line);
+  box-shadow:none;
 }
 
 .hero{
-padding:60px 20px;
-max-width:1100px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
+  padding:72px 0 40px;
 }
 
-.hero img{
-width:100%;
-border-radius:15px;
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:30px;
+  align-items:center;
 }
 
-.hero h1{
-font-size:40px;
-margin-bottom:20px;
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(214,181,108,0.12);
+  border:1px solid rgba(214,181,108,0.25);
+  color:#f3d794;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+h1{
+  margin:0 0 18px;
+  font-size:clamp(34px,5vw,60px);
+  line-height:1.05;
 }
 
 .hero p{
-font-size:18px;
-color:#bbb;
+  margin:0 0 26px;
+  color:var(--muted);
+  font-size:18px;
+  max-width:680px;
 }
 
-.services{
-padding:80px 20px;
-max-width:1100px;
-margin:auto;
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
 }
 
-.services h2{
-font-size:32px;
-margin-bottom:40px;
+.hero-points{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+.point{
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.point strong{
+  display:block;
+  color:#fff;
+  font-size:16px;
+  margin-bottom:4px;
+}
+
+.hero-card{
+  background:linear-gradient(180deg,#171c25 0%, #121721 100%);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+
+.hero-image{
+  min-height:470px;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.45)),
+    url('hero-renovation.jpg') center/cover;
+}
+
+.tag{
+  position:absolute;
+  left:16px;
+  right:16px;
+  bottom:16px;
+  padding:16px;
+  border-radius:18px;
+  background:rgba(9,12,16,0.78);
+  border:1px solid rgba(255,255,255,0.10);
+  backdrop-filter:blur(8px);
+}
+
+.tag strong{
+  display:block;
+  margin-bottom:6px;
+  font-size:20px;
+}
+
+.tag span{
+  color:var(--muted);
+  font-size:14px;
+}
+
+section{
+  padding:36px 0;
+}
+
+.notice{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:18px;
+  align-items:center;
+  padding:22px;
+  border-radius:22px;
+  background:linear-gradient(90deg, rgba(214,181,108,0.14), rgba(255,255,255,0.02));
+  border:1px solid rgba(214,181,108,0.20);
+}
+
+.notice strong{
+  display:block;
+  font-size:24px;
+  margin-bottom:6px;
+}
+
+.notice p{
+  margin:0;
+  color:var(--muted);
+}
+
+.section-head{
+  margin-bottom:22px;
+}
+
+.section-head h2{
+  margin:0 0 8px;
+  font-size:clamp(28px,4vw,40px);
+}
+
+.section-head p{
+  margin:0;
+  color:var(--muted);
+  max-width:760px;
+}
+
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
 .card{
-background:#1a1e26;
-border-radius:15px;
-overflow:hidden;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--shadow);
 }
 
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
+.icon{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:rgba(214,181,108,0.14);
+  color:#f2d792;
+  font-size:22px;
+  margin-bottom:16px;
 }
 
 .card h3{
-padding:15px;
-margin:0;
+  margin:0 0 10px;
+  font-size:20px;
 }
 
 .card p{
-padding:0 15px 20px;
-color:#aaa;
+  margin:0;
+  color:var(--muted);
 }
 
-.about{
-padding:80px 20px;
-max-width:900px;
-margin:auto;
-text-align:center;
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
-footer{
-background:#000;
-padding:30px;
-text-align:center;
-color:#777;
+.step-number{
+  width:38px;
+  height:38px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:var(--gold);
+  color:#111;
+  font-weight:800;
+  margin-bottom:14px;
 }
 
+.gallery{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr;
+  gap:16px;
+}
+
+.photo{
+  position:relative;
+  min-height:260px;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background-size:cover;
+  background-position:center;
+  box-shadow:var(--shadow);
+}
+
+.photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.35));
+}
+
+.photo.one{background-image:url('boden-verlegen.jpg')}
+.photo.two{background-image:url('decke-arbeit.jpg')}
+.photo.three{background-image:url('gartenarbeit.jpg')}
+
+.photo-label{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  z-index:1;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(10,13,18,0.82);
+  border:1px solid rgba(255,255,255,0.12);
+  font-size:14px;
+}
+
+.before-after{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.before-after .image-box{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.before-after img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+}
+
+.before-after .label{
+  padding:14px 18px;
+  font-weight:700;
+}
+
+.contact-wrap{
+  display:grid;
+  grid-template-columns:1fr 0.95fr;
+  gap:18px;
+}
+
+.contact-list{
+  display:grid;
+  gap:14px;
+  margin-top:18px;
+}
+
+.contact-item{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:14px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.02);
+}
+
+.contact-item strong{
+  display:block;
+  margin-bottom:4px;
+}
+
+.contact-item span{
+  color:var(--muted);
+}
+
+.footer{
+  padding:30px 0 50px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.footer-box{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+}
+
+.floating-whatsapp{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:80;
+  background:#25d366;
+  color:#111;
+  width:58px;
+  height:58px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  font-size:28px;
+  box-shadow:0 14px 30px rgba(0,0,0,0.35);
+}
+
+@media (max-width:980px){
+  .hero-grid,
+  .grid-4,
+  .steps,
+  .gallery,
+  .before-after,
+  .contact-wrap{
+    grid-template-columns:1fr;
+  }
+
+  .hero-points{
+    grid-template-columns:1fr;
+  }
+
+  .notice{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:700px){
+  .nav{
+    align-items:flex-start;
+  }
+
+  .logo{
+    align-items:flex-start;
+  }
+
+  .logo img{
+    height:58px;
+  }
+
+  .logo-text{
+    font-size:17px;
+  }
+
+  nav a:not(.btn){
+    display:none;
+  }
+
+  .hero{
+    padding-top:42px;
+  }
+
+  h1{
+    font-size:36px;
+  }
+
+  .hero-actions{
+    display:grid;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .hero-image{
+    min-height:340px;
+  }
+
+  .before-after img{
+    height:240px;
+  }
+}
 </style>
 </head>
-
 <body>
 
 <header>
+  <div class="container nav">
+    <a class="logo" href="#top">
+      <img src="logo-dimas.png" alt="Dimas Bau & Renovationen Logo">
+      <div class="logo-text">
+        Dimas Bau & Renovationen
+        <small>St. Margrethen & Umgebung</small>
+      </div>
+    </a>
 
-<div class="logo">
-<img src="logo-dimas.png">
-<div>
-<b>Dimas Bau</b><br>
-<small>Bau & Renovationen</small>
-</div>
-</div>
-
-<nav>
-<a href="#leistungen">Leistungen</a>
-<a href="#about">Über uns</a>
-<a class="whatsapp" href="https://wa.me/">WhatsApp</a>
-</nav>
-
+    <nav>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#arbeiten">Arbeiten</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="btn" href="https://wa.me/41762655795" target="_blank" rel="noopener">WhatsApp Anfrage</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Kleiner Betrieb • Persönlich • Direkt erreichbar</div>
+        <h1>Kleine, saubere Arbeiten rund ums Haus – ehrlich, modern und zuverlässig.</h1>
+        <p>
+          Dimas Bau & Renovationen ist ein <strong>kleiner persönlicher Betrieb</strong> aus St. Margrethen. Wir sind am Anfang und bauen unsere Firma Schritt für Schritt auf – mit <strong>sauberer Arbeit, fairen Preisen und direktem Kontakt</strong>.
+        </p>
+        <p>
+          Wir übernehmen <strong>kleinere Renovationen, Bodenarbeiten, Gartenarbeiten und praktische Arbeiten rund ums Haus</strong>. Kein grosses Team, sondern persönlicher Einsatz und ehrliche Arbeit.
+        </p>
 
-<div>
+        <div class="hero-actions">
+          <a class="btn" href="https://wa.me/41762655795" target="_blank" rel="noopener">Jetzt per WhatsApp anfragen</a>
+          <a class="btn secondary" href="#kontakt">Kontakt ansehen</a>
+        </div>
 
-<h1>Kleiner Betrieb für Renovationen</h1>
+        <div class="hero-points">
+          <div class="point">
+            <strong>Kleiner Betrieb</strong>
+            Persönlich, direkt und ohne unnötige Umwege.
+          </div>
+          <div class="point">
+            <strong>Saubere Arbeit</strong>
+            Sorgfältige Ausführung und ordentliche Übergabe.
+          </div>
+          <div class="point">
+            <strong>Faire Preise</strong>
+            Ehrliche Absprachen für private Kunden.
+          </div>
+        </div>
+      </div>
 
-<p>
-Dimas Bau & Renovationen ist ein kleiner Betrieb aus der Region.
-Wir helfen bei Renovationen, Bodenarbeiten, Gartenarbeiten
-und kleineren Bauarbeiten rund ums Haus.
-</p>
+      <div class="hero-card">
+        <div class="hero-image">
+          <div class="tag">
+            <strong>Renovationen & kleine Arbeiten</strong>
+            <span>Ideal für Privatkunden, die eine saubere und ehrliche Lösung suchen.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>
-Als kleiner Betrieb arbeiten wir persönlich, flexibel
-und legen grossen Wert auf saubere Arbeit und zufriedene Kunden.
-</p>
+  <section>
+    <div class="container">
+      <div class="notice">
+        <div>
+          <strong>Wir sind klein – genau das ist unsere Stärke.</strong>
+          <p>
+            Wir stehen noch am Anfang und möchten mit guter Arbeit überzeugen. Deshalb legen wir besonderen Wert auf saubere Ausführung, direkte Kommunikation und zufriedene Kunden.
+          </p>
+        </div>
+        <a class="btn" href="https://wa.me/41762655795" target="_blank" rel="noopener">Unverbindlich anfragen</a>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section id="leistungen">
+    <div class="container">
+      <div class="section-head">
+        <h2>Unsere Leistungen</h2>
+        <p>Praktische Arbeiten für Privatkunden – genau für das, was im Alltag wirklich gebraucht wird.</p>
+      </div>
 
-<img src="hero-renovation.jpg">
+      <div class="grid-4">
+        <article class="card">
+          <div class="icon">🪵</div>
+          <h3>Bodenarbeiten</h3>
+          <p>Laminat, Vinyl und kleinere Bodenarbeiten – sauber und ordentlich ausgeführt.</p>
+        </article>
 
-</section>
+        <article class="card">
+          <div class="icon">🛠️</div>
+          <h3>Kleine Renovationen</h3>
+          <p>Ausbesserungen, kleinere Umbauten und praktische Arbeiten im Wohnbereich.</p>
+        </article>
 
-<section id="leistungen" class="services">
+        <article class="card">
+          <div class="icon">🏠</div>
+          <h3>Innenarbeiten</h3>
+          <p>Arbeiten an Decken, einfachen Ausbauten und kleinen Renovationsdetails.</p>
+        </article>
 
-<h2>Unsere Arbeiten</h2>
+        <article class="card">
+          <div class="icon">🌿</div>
+          <h3>Gartenarbeiten</h3>
+          <p>Praktische Arbeiten rund um Garten, Haus und Aussenbereich.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<div class="grid">
+  <section id="ablauf">
+    <div class="container">
+      <div class="section-head">
+        <h2>So läuft eine Anfrage ab</h2>
+        <p>Einfach, direkt und ohne komplizierten Ablauf.</p>
+      </div>
 
-<div class="card">
-<img src="boden-verlegen.jpg">
-<h3>Boden verlegen</h3>
-<p>Laminat, Vinyl und andere Bodenarbeiten.</p>
-</div>
+      <div class="steps">
+        <article class="card">
+          <div class="step-number">1</div>
+          <h3>Nachricht senden</h3>
+          <p>Schicken Sie kurz per WhatsApp, worum es geht – gern auch mit Fotos.</p>
+        </article>
 
-<div class="card">
-<img src="boden-fertig.jpg">
-<h3>Renovationen</h3>
-<p>Wohnungen renovieren und modernisieren.</p>
-</div>
+        <article class="card">
+          <div class="step-number">2</div>
+          <h3>Besprechen</h3>
+          <p>Wir schauen gemeinsam, was gemacht werden soll und wie wir helfen können.</p>
+        </article>
 
-<div class="card">
-<img src="decke-arbeit.jpg">
-<h3>Innenarbeiten</h3>
-<p>Decken, kleinere Umbauten und Arbeiten im Haus.</p>
-</div>
+        <article class="card">
+          <div class="step-number">3</div>
+          <h3>Ausführen</h3>
+          <p>Die Arbeit wird sauber, ehrlich und zuverlässig umgesetzt.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<img src="gartenarbeit.jpg">
-<h3>Gartenarbeiten</h3>
-<p>Arbeiten rund um Garten und Haus.</p>
-</div>
+  <section id="arbeiten">
+    <div class="container">
+      <div class="section-head">
+        <h2>Eindrücke unserer Arbeiten</h2>
+        <p>Beispiele für Bodenarbeiten, Innenarbeiten und Gartenarbeiten.</p>
+      </div>
 
-</div>
+      <div class="gallery">
+        <div class="photo one"><span class="photo-label">Boden verlegen</span></div>
+        <div class="photo two"><span class="photo-label">Innenarbeiten</span></div>
+        <div class="photo three"><span class="photo-label">Gartenarbeit</span></div>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Vorher / Nachher Eindruck</h2>
+        <p>Ein Beispiel dafür, wie Räume verändert und modernisiert werden können.</p>
+      </div>
 
-<section id="about" class="about">
+      <div class="before-after">
+        <div class="image-box">
+          <img src="hero-renovation.jpg" alt="Renovation vorher">
+          <div class="label">Vorher</div>
+        </div>
 
-<h2>Über uns</h2>
+        <div class="image-box">
+          <img src="boden-fertig.jpg" alt="Renovation nachher">
+          <div class="label">Nachher</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>
-Wir sind ein kleiner Betrieb der gerade am Anfang steht
-und Schritt für Schritt wächst.
-</p>
+  <section id="kontakt">
+    <div class="container contact-wrap">
+      <div class="card">
+        <h2 style="margin-top:0; font-size:34px;">Kontakt</h2>
+        <p style="color:var(--muted); margin-bottom:0;">
+          Sie möchten eine Arbeit besprechen oder direkt ein Foto vom Auftrag schicken? Schreiben Sie einfach per WhatsApp oder rufen Sie an.
+        </p>
 
-<p>
-Unser Ziel ist es gute Arbeit zu fairen Preisen anzubieten
-und Kunden langfristig zufrieden zu machen.
-</p>
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="icon" style="margin:0; width:44px; height:44px; font-size:18px;">📞</div>
+            <div>
+              <strong>Telefon / WhatsApp</strong>
+              <span><a href="tel:+41762655795">076 265 57 95</a></span>
+            </div>
+          </div>
 
-</section>
+          <div class="contact-item">
+            <div class="icon" style="margin:0; width:44px; height:44px; font-size:18px;">📍</div>
+            <div>
+              <strong>Region</strong>
+              <span>St. Margrethen & Umgebung</span>
+            </div>
+          </div>
 
-<footer>
+          <div class="contact-item">
+            <div class="icon" style="margin:0; width:44px; height:44px; font-size:18px;">💬</div>
+            <div>
+              <strong>Schnellste Anfrage</strong>
+              <span>Am besten direkt per WhatsApp mit kurzer Beschreibung und Foto.</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-Dimas Bau & Renovationen
+      <div class="card">
+        <h3 style="margin-top:0; font-size:28px;">Warum Kunden uns anfragen</h3>
+        <p style="color:var(--muted);">
+          Nicht jeder Auftrag braucht eine grosse Firma. Viele suchen einfach jemanden, der kleinere private Arbeiten ernst nimmt und zuverlässig arbeitet.
+        </p>
 
+        <ul style="color:var(--muted); padding-left:18px; margin:18px 0 26px;">
+          <li>kleiner persönlicher Betrieb</li>
+          <li>ideal für kleinere private Arbeiten</li>
+          <li>direkte Kommunikation</li>
+          <li>saubere und ehrliche Ausführung</li>
+        </ul>
+
+        <a class="btn" href="https://wa.me/41762655795" target="_blank" rel="noopener">Jetzt Nachricht senden</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-box">
+    <div>© 2026 Dimas Bau & Renovationen</div>
+    <div>St. Margrethen • Renovationen • Bodenarbeiten • Gartenarbeiten</div>
+  </div>
 </footer>
+
+<a class="floating-whatsapp" href="https://wa.me/41762655795" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
 </body>
 </html>
